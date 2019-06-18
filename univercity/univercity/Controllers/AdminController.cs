@@ -15,7 +15,7 @@ namespace univercity.Controllers
         // GET: Admin
         //***************************************************************
         //شمس آبادی
-        //احمدآبادی***
+        //احمدآبادی*****
         public ActionResult home()
         {
             ViewData["msg"] = "مدیر خوش آمدی";
