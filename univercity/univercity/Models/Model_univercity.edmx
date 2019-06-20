@@ -13,6 +13,13 @@
           <Property Name="name_user" Type="nvarchar" MaxLength="20" />
           <Property Name="password" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="tbl_official">
+          <Key>
+            <PropertyRef Name="code_official" />
+          </Key>
+          <Property Name="code_official" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="official_show" Type="nvarchar" MaxLength="20" />
+        </EntityType>
         <EntityType Name="tbl_teacher_presonal_information">
           <Key>
             <PropertyRef Name="code_national_teacher" />
@@ -56,6 +63,7 @@
         </EntityType>
         <EntityContainer Name="univercityModelStoreContainer">
           <EntitySet Name="tbl_adminstrator" EntityType="Self.tbl_adminstrator" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_official" EntityType="Self.tbl_official" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_teacher_presonal_information" EntityType="Self.tbl_teacher_presonal_information" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -73,6 +81,7 @@
         <EntityContainer Name="univercityEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="tbl_adminstrator" EntityType="Self.tbl_adminstrator" />
           <EntitySet Name="tbl_teacher_presonal_information" EntityType="univercityModel.tbl_teacher_presonal_information" />
+          <EntitySet Name="tbl_official" EntityType="univercityModel.tbl_official" />
         </EntityContainer>
         <EntityType Name="tbl_teacher_presonal_information">
           <Key>
@@ -114,6 +123,13 @@
           <Property Name="date_insert_information" Type="DateTime" Precision="0" />
           <Property Name="code_group_lesson" Type="Int32" />
           <Property Name="code_status_account" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tbl_official">
+          <Key>
+            <PropertyRef Name="code_official" />
+          </Key>
+          <Property Name="code_official" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="official_show" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -169,6 +185,14 @@
                 <ScalarProperty Name="name_teacher" ColumnName="name_teacher" />
                 <ScalarProperty Name="password" ColumnName="password" />
                 <ScalarProperty Name="code_national_teacher" ColumnName="code_national_teacher" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_official">
+            <EntityTypeMapping TypeName="univercityModel.tbl_official">
+              <MappingFragment StoreEntitySet="tbl_official">
+                <ScalarProperty Name="official_show" ColumnName="official_show" />
+                <ScalarProperty Name="code_official" ColumnName="code_official" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -21,24 +21,83 @@ namespace univercity.Controllers
         public ActionResult login()
         {
             TempData["msg"] = "";
+            ViewBag.official = new SelectList(db.tbl_official, "code_official", "official_show");
+
             return View();
         }
 
-        public ActionResult _login(string txt_usernam ,string txt_pass)
+        public ActionResult _login(string txt_usernam, string txt_pass, string official)
         {
             //مدیراصلی
-
-            tbl_adminstrator tba = db.tbl_adminstrator.Where(a=> a.name_user==txt_usernam && a.password==txt_pass).SingleOrDefault();
-            if (tba==null)
+            if (official == "1")
             {
-                TempData["msg"] = "نام کاربری یا رمز یافت نشد";
-                return View("login");
+                tbl_adminstrator tba = db.tbl_adminstrator.Where(a => a.name_user == txt_usernam && a.password == txt_pass).SingleOrDefault();
+                if (tba == null)
+                {
+                    TempData["msg"] = "نام کاربری یا رمز یافت نشد";
+                    ViewBag.official = new SelectList(db.tbl_official, "code_official", "official_show");
+                    return View("login");
+                }
+                else
+                {
+                    return RedirectToAction("home", "Admin");
+
+                }
+
             }
+           
+            //کد سوئیج به پیج مدیر گروه
+            //else if (official == "2")
+            //{
+            //    tbl_adminstrator tba = db.tbl_adminstrator.Where(a => a.name_user == txt_usernam && a.password == txt_pass).SingleOrDefault();
+            //    if (tba == null)
+            //    {
+            //        TempData["msg"] = "نام کاربری یا رمز یافت نشد";
+            //        return View("login");
+            //    }
+            //    else
+            //    {
+            //        return RedirectToAction("home", "Admin");
+
+            //    }
+
+
+            //کد سوئیج به پیج اساتید
+            //else if (official == "3")
+            //{
+            //    tbl_adminstrator tba = db.tbl_adminstrator.Where(a => a.name_user == txt_usernam && a.password == txt_pass).SingleOrDefault();
+            //    if (tba == null)
+            //    {
+            //        TempData["msg"] = "نام کاربری یا رمز یافت نشد";
+            //        return View("login");
+            //    }
+            //    else
+            //    {
+            //        return RedirectToAction("home", "Admin");
+
+            //    }
+            //}
+
+            //کد سوئیج به پیج دانشجو
+            //else if (official == "3")
+            //{
+            //    tbl_adminstrator tba = db.tbl_adminstrator.Where(a => a.name_user == txt_usernam && a.password == txt_pass).SingleOrDefault();
+            //    if (tba == null)
+            //    {
+            //        TempData["msg"] = "نام کاربری یا رمز یافت نشد";
+            //        return View("login");
+            //    }
+            //    else
+            //    {
+            //        return RedirectToAction("home", "Admin");
+
+            //    }
             else
             {
-                return RedirectToAction("home","Admin");
-
+                ViewBag.official = new SelectList(db.tbl_official, "code_official", "official_show");
+                return View("login");
             }
+               
         }
 
         public ActionResult show_list()

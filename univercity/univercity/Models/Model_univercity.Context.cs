@@ -27,5 +27,6 @@ namespace univercity.Models
     
         public virtual DbSet<tbl_adminstrator> tbl_adminstrator { get; set; }
         public virtual DbSet<tbl_teacher_presonal_information> tbl_teacher_presonal_information { get; set; }
+        public virtual DbSet<tbl_official> tbl_official { get; set; }
     }
 }
