@@ -31,6 +31,7 @@ namespace univercity.Controllers
             //مدیراصلی
             if (official == "1")
             {
+                
                 tbl_adminstrator tba = db.tbl_adminstrator.Where(a => a.name_user == txt_usernam && a.password == txt_pass).SingleOrDefault();
                 if (tba == null)
                 {
@@ -40,6 +41,7 @@ namespace univercity.Controllers
                 }
                 else
                 {
+                    Session["user_name"] = txt_usernam;
                     return RedirectToAction("home", "Admin");
 
                 }
