@@ -13,6 +13,13 @@
           <Property Name="name_user" Type="nvarchar" MaxLength="20" />
           <Property Name="password" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="tbl_group_lesson">
+          <Key>
+            <PropertyRef Name="code_group_lesson" />
+          </Key>
+          <Property Name="code_group_lesson" Type="int" Nullable="false" />
+          <Property Name="code_national_teacher" Type="nvarchar" MaxLength="20" />
+        </EntityType>
         <EntityType Name="tbl_official">
           <Key>
             <PropertyRef Name="code_official" />
@@ -63,6 +70,7 @@
         </EntityType>
         <EntityContainer Name="univercityModelStoreContainer">
           <EntitySet Name="tbl_adminstrator" EntityType="Self.tbl_adminstrator" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_group_lesson" EntityType="Self.tbl_group_lesson" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_official" EntityType="Self.tbl_official" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_teacher_presonal_information" EntityType="Self.tbl_teacher_presonal_information" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
@@ -82,6 +90,7 @@
           <EntitySet Name="tbl_adminstrator" EntityType="Self.tbl_adminstrator" />
           <EntitySet Name="tbl_teacher_presonal_information" EntityType="univercityModel.tbl_teacher_presonal_information" />
           <EntitySet Name="tbl_official" EntityType="univercityModel.tbl_official" />
+          <EntitySet Name="tbl_group_lesson" EntityType="univercityModel.tbl_group_lesson" />
         </EntityContainer>
         <EntityType Name="tbl_teacher_presonal_information">
           <Key>
@@ -130,6 +139,13 @@
           </Key>
           <Property Name="code_official" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="official_show" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_group_lesson">
+          <Key>
+            <PropertyRef Name="code_group_lesson" />
+          </Key>
+          <Property Name="code_group_lesson" Type="Int32" Nullable="false" />
+          <Property Name="code_national_teacher" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -193,6 +209,14 @@
               <MappingFragment StoreEntitySet="tbl_official">
                 <ScalarProperty Name="official_show" ColumnName="official_show" />
                 <ScalarProperty Name="code_official" ColumnName="code_official" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_group_lesson">
+            <EntityTypeMapping TypeName="univercityModel.tbl_group_lesson">
+              <MappingFragment StoreEntitySet="tbl_group_lesson">
+                <ScalarProperty Name="code_national_teacher" ColumnName="code_national_teacher" />
+                <ScalarProperty Name="code_group_lesson" ColumnName="code_group_lesson" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
