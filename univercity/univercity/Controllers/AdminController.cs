@@ -17,13 +17,16 @@ namespace univercity.Controllers
         //شمس آبادی********
         public ActionResult home()
         {
-            ViewData["msg"] = "مدیر خوش آمدی";
+            ViewData["msg"] = Session["user_name"];
             return View();
         }
 
-        public ActionResult action_insert_teacher(tbl_teacher_presonal_information tb)
+        public ActionResult action_insert_teacher(tbl_teacher_presonal_information tb,int group_lesson)
         {
+
             Teacher_Repository tr = new Teacher_Repository();
+            tb.code_group_lesson = group_lesson;
+
             int result = tr.insert_teacher(tb);
             if (result == 0)
             {
@@ -50,6 +53,7 @@ namespace univercity.Controllers
 
         public ActionResult formInsert()//فرم تکس باکس های ثبت اطلاعات شخصی اساتید
         {
+           ViewBag.group_lesson = new SelectList(db.tbl_group_lesson, "code_group_lesson", "code_national_teacher");
             return View();
         }
 
