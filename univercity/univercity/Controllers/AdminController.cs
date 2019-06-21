@@ -21,39 +21,49 @@ namespace univercity.Controllers
             return View();
         }
 
-        public ActionResult action_insert_teacher(tbl_teacher_presonal_information tb,int group_lesson)
+        public ActionResult action_insert_teacher(tbl_teacher_presonal_information tb ,int show_group_lesson)
         {
 
-            Teacher_Repository tr = new Teacher_Repository();
-            tb.code_group_lesson = group_lesson;
+           
+                Teacher_Repository tr = new Teacher_Repository();
+                tb.code_group_lesson =show_group_lesson;
 
-            int result = tr.insert_teacher(tb);
-            if (result == 0)
-            {
-                return HttpNotFound();
-            }
+                int result = tr.insert_teacher(tb);
+                if (result == 0)
+                {
+                    return HttpNotFound();
+                }
+                
 
-
+            
+            
+            
             return RedirectToAction("show_teacher");
+
+
+
         }
         public void insert_teacher(tbl_teacher_presonal_information tb)
         {
-            Teacher_Repository tr = new Teacher_Repository();
-           int result= tr.insert_teacher(tb);
-            if(result==0)
-            {
-                ViewData["msg"] = "عملیات با خطا مواجه شد";
-            }else
+           
+                Teacher_Repository tr = new Teacher_Repository();
+                int result = tr.insert_teacher(tb);
+                if (result == 0)
+                {
+                    ViewData["msg"] = "عملیات با خطا مواجه شد";
+                }
+                else
 
-            {
-                ViewData["msg"] = "ثبت با موفقیت انجام شد";
-            }
+                {
+                    ViewData["msg"] = "ثبت با موفقیت انجام شد";
+                }
+            
              
         }
 
         public ActionResult formInsert()//فرم تکس باکس های ثبت اطلاعات شخصی اساتید
         {
-           ViewBag.group_lesson = new SelectList(db.tbl_group_lesson, "code_group_lesson", "code_national_teacher");
+           ViewBag.show_group_lesson = new SelectList(db.tbl_show_group_lesson, "code_group_lesson", "code_group_lesson_show");
             return View();
         }
 
