@@ -40,7 +40,6 @@ namespace univercity.Models
 
         public int insert_teacher(tbl_teacher_presonal_information tb)
         {
-           
             db.tbl_teacher_presonal_information.Add(tb);
             return db.SaveChanges();
         }
