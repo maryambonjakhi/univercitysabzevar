@@ -153,6 +153,9 @@
     <Compile Include="Models\tbl_official.cs">
       <DependentUpon>Model_univercity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\tbl_show_group_lesson.cs">
+      <DependentUpon>Model_univercity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\tbl_teacher_presonal_information.cs">
       <DependentUpon>Model_univercity.tt</DependentUpon>
     </Compile>
