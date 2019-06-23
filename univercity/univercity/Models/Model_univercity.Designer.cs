@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\ARMAN_PC\Source\Repos\univercitysabzevar\univercity\univercity\Models\Model_univercity.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\nasle javan\Source\Repos\univercitysabzevar5\univercity\univercity\Models\Model_univercity.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

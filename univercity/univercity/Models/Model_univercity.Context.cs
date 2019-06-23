@@ -30,5 +30,6 @@ namespace univercity.Models
         public virtual DbSet<tbl_official> tbl_official { get; set; }
         public virtual DbSet<tbl_group_lesson> tbl_group_lesson { get; set; }
         public virtual DbSet<tbl_show_group_lesson> tbl_show_group_lesson { get; set; }
+        public virtual DbSet<tbl_teacher_reference> tbl_teacher_reference { get; set; }
     }
 }

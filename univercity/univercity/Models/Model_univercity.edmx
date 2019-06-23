@@ -75,12 +75,28 @@
           <Property Name="code_group_lesson" Type="int" />
           <Property Name="code_status_account" Type="bit" />
         </EntityType>
+        <EntityType Name="tbl_teacher_reference">
+          <Key>
+            <PropertyRef Name="code_national_teacher" />
+          </Key>
+          <Property Name="code_national_teacher" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" />
+          <Property Name="family" Type="nvarchar" MaxLength="50" />
+          <Property Name="type_relationship_familiarity" Type="nvarchar" MaxLength="100" />
+          <Property Name="time_acqu" Type="nvarchar" MaxLength="50" />
+          <Property Name="job" Type="nvarchar" MaxLength="50" />
+          <Property Name="address_place_work" Type="nvarchar" MaxLength="100" />
+          <Property Name="phone_number" Type="nvarchar" MaxLength="20" />
+          <Property Name="code_type_reference" Type="int" />
+          <Property Name="date_register_information" Type="date" />
+        </EntityType>
         <EntityContainer Name="univercityModelStoreContainer">
           <EntitySet Name="tbl_adminstrator" EntityType="Self.tbl_adminstrator" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_group_lesson" EntityType="Self.tbl_group_lesson" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_official" EntityType="Self.tbl_official" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_show_group_lesson" EntityType="Self.tbl_show_group_lesson" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_teacher_presonal_information" EntityType="Self.tbl_teacher_presonal_information" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_teacher_reference" EntityType="Self.tbl_teacher_reference" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -100,6 +116,7 @@
           <EntitySet Name="tbl_official" EntityType="univercityModel.tbl_official" />
           <EntitySet Name="tbl_group_lesson" EntityType="univercityModel.tbl_group_lesson" />
           <EntitySet Name="tbl_show_group_lesson" EntityType="univercityModel.tbl_show_group_lesson" />
+          <EntitySet Name="tbl_teacher_reference" EntityType="univercityModel.tbl_teacher_reference" />
         </EntityContainer>
         <EntityType Name="tbl_teacher_presonal_information">
           <Key>
@@ -162,6 +179,21 @@
           </Key>
           <Property Name="code_group_lesson" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="code_group_lesson_show" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_teacher_reference">
+          <Key>
+            <PropertyRef Name="code_national_teacher" />
+          </Key>
+          <Property Name="code_national_teacher" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="family" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="type_relationship_familiarity" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="time_acqu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="job" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="address_place_work" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="phone_number" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="code_type_reference" Type="Int32" />
+          <Property Name="date_register_information" Type="DateTime" Precision="0" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -241,6 +273,22 @@
               <MappingFragment StoreEntitySet="tbl_show_group_lesson">
                 <ScalarProperty Name="code_group_lesson_show" ColumnName="code_group_lesson_show" />
                 <ScalarProperty Name="code_group_lesson" ColumnName="code_group_lesson" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_teacher_reference">
+            <EntityTypeMapping TypeName="univercityModel.tbl_teacher_reference">
+              <MappingFragment StoreEntitySet="tbl_teacher_reference">
+                <ScalarProperty Name="date_register_information" ColumnName="date_register_information" />
+                <ScalarProperty Name="code_type_reference" ColumnName="code_type_reference" />
+                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+                <ScalarProperty Name="address_place_work" ColumnName="address_place_work" />
+                <ScalarProperty Name="job" ColumnName="job" />
+                <ScalarProperty Name="time_acqu" ColumnName="time_acqu" />
+                <ScalarProperty Name="type_relationship_familiarity" ColumnName="type_relationship_familiarity" />
+                <ScalarProperty Name="family" ColumnName="family" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="code_national_teacher" ColumnName="code_national_teacher" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

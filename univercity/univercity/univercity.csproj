@@ -159,7 +159,12 @@
     <Compile Include="Models\tbl_teacher_presonal_information.cs">
       <DependentUpon>Model_univercity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\tbl_teacher_reference.cs">
+      <DependentUpon>Model_univercity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Teacher\I_teacher.cs" />
+    <Compile Include="Models\Teacher\I_teacher_reference.cs" />
+    <Compile Include="Models\Teacher\Teacher_reference_Repository.cs" />
     <Compile Include="Models\Teacher\Teacher_Repository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resource1.Designer.cs">
