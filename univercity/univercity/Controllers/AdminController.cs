@@ -10,7 +10,7 @@ namespace univercity.Controllers
 {
 
     /// <summary>
-    ///  test NIght
+    ///  بد بخت شدیم رفت
     /// </summary>
    
     public class AdminController : Controller
