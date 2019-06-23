@@ -8,6 +8,10 @@ using univercity.Models;
 namespace univercity.Controllers
 
 {
+
+    /// <summary>
+    ///  test NIght
+    /// </summary>
    
     public class AdminController : Controller
     {
