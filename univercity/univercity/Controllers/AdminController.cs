@@ -97,6 +97,13 @@ namespace univercity.Controllers
             return RedirectToAction("show_teacher");
         }
 
+
+        public ActionResult Edit(string id="")
+        {
+            tbl_teacher_presonal_information tb = db.tbl_teacher_presonal_information.Where(c => c.code_national_teacher== id).SingleOrDefault();
+            return View();
+        }
+
         public ActionResult edite_teacher(string id)
         {
             string _id = id;
@@ -108,7 +115,7 @@ namespace univercity.Controllers
             return RedirectToAction("show_teacher");
         }
 
-
+        ///     Admin/Edit/5730108940
 
 
     }
