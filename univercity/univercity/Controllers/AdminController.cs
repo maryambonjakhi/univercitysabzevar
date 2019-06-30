@@ -14,7 +14,8 @@ namespace univercity.Controllers
         univercityEntities db = new univercityEntities();
         // GET: Admin
         //***************************************************************
-        //شمس آبادی
+        //شمس آبادی*********
+
         public ActionResult home()
         {
             ViewData["msg"] = "مدیر خوش آمدی";
